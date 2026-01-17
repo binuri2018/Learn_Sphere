@@ -92,12 +92,44 @@ const CourseDetail = () => {
   return (
     <div className="course-detail">
       <div className="course-header">
-        <h1>{course.title}</h1>
-        <p className="course-description">{course.description}</p>
-        <div className="course-info">
-          <span>Level: {course.level}</span>
-          <span>Category: {course.category}</span>
-          <span>Duration: {course.duration} hours</span>
+        <div className="course-header-image">
+          <svg viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="300" fill="url(#headerGradient)" />
+            <defs>
+              <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#9B7EDE" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.3" />
+              </linearGradient>
+            </defs>
+            <circle cx="400" cy="150" r="100" fill="white" opacity="0.1" />
+            <path d="M350 100L400 50L450 100L400 150L350 100Z" fill="white" opacity="0.15" />
+            <circle cx="400" cy="150" r="40" fill="white" opacity="0.2" />
+          </svg>
+        </div>
+        <div className="course-header-content">
+          <h1>{course.title}</h1>
+          <p className="course-description">{course.description}</p>
+          <div className="course-info">
+            <span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#9B7EDE" />
+              </svg>
+              Level: {course.level}
+            </span>
+            <span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" fill="#9B7EDE" />
+              </svg>
+              Category: {course.category}
+            </span>
+            <span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#9B7EDE" strokeWidth="2" fill="none" />
+                <path d="M12 6V12L16 14" stroke="#9B7EDE" strokeWidth="2" fill="none" />
+              </svg>
+              Duration: {course.duration} hours
+            </span>
+          </div>
         </div>
       </div>
 
