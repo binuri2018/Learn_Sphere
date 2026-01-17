@@ -1,0 +1,216 @@
+.course-detail {
+  padding: 20px;
+}
+
+.course-header {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.course-header h1 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.course-description {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.course-info {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.enrollment-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  background-color: #ecf0f1;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #27ae60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  transition: width 0.3s;
+}
+
+.enroll-button,
+.unenroll-button {
+  background-color: #27ae60;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.enroll-button:hover {
+  background-color: #229954;
+}
+
+.unenroll-button {
+  background-color: #e74c3c;
+}
+
+.unenroll-button:hover {
+  background-color: #c0392b;
+}
+
+.course-actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.action-button {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #2980b9;
+}
+
+.lessons-section {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lessons-section h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.lesson-item {
+  padding: 20px;
+  border: 1px solid #ecf0f1;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.lesson-item:hover {
+  background-color: #f8f9fa;
+}
+
+.lesson-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.lesson-header h3 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.lesson-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #555;
+}
+
+.lesson-checkbox input[type='checkbox'] {
+  width: auto;
+  cursor: pointer;
+}
+
+.lesson-type {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.lesson-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.lesson-button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.85rem;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: #f39c12;
+  color: white;
+}
+
+.lesson-button:hover {
+  background-color: #e67e22;
+}
+
+.lesson-button.delete {
+  background-color: #e74c3c;
+}
+
+.lesson-button.delete:hover {
+  background-color: #c0392b;
+}
+
+.view-lesson-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.view-lesson-button:hover {
+  background-color: #2980b9;
+}
+
+.course-detail-loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}

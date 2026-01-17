@@ -1,0 +1,120 @@
+.course-list {
+  padding: 20px;
+}
+
+.course-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.course-list-header h1 {
+  color: #2c3e50;
+}
+
+.create-course-button {
+  background-color: #27ae60;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.create-course-button:hover {
+  background-color: #229954;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.course-card h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.course-description {
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.course-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  color: #95a5a6;
+}
+
+.course-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.course-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.course-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.course-button:hover {
+  background-color: #2980b9;
+}
+
+.course-button.edit {
+  background-color: #f39c12;
+}
+
+.course-button.edit:hover {
+  background-color: #e67e22;
+}
+
+.course-button.delete {
+  background-color: #e74c3c;
+}
+
+.course-button.delete:hover {
+  background-color: #c0392b;
+}
+
+.course-list-loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
