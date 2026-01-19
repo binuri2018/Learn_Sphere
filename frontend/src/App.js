@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 // Pages
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
+import Home from './pages/Dashboard';
 import Profile from './pages/Profile';
 import CourseList from './pages/CourseList';
 import CourseDetail from './pages/CourseDetail';
@@ -28,10 +28,10 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route
-                path="/dashboard"
+                path="/home"
                 element={
                   <ProtectedRoute>
-                    <Dashboard />
+                    <Home />
                   </ProtectedRoute>
                 }
               />
@@ -83,7 +83,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/" element={<Navigate to="/home" replace />} />
             </Routes>
           </div>
         </div>

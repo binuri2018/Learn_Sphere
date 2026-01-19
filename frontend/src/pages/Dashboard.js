@@ -5,7 +5,7 @@ import api from '../utils/api';
 import { CourseIcon, EnrollmentIcon, ProgressIcon } from '../components/Icons';
 import '../styles/Dashboard.css';
 
-const Dashboard = () => {
+const Home = () => {
   const { user, isAdmin, isInstructor, isStudent } = useAuth();
   const [stats, setStats] = useState({
     courses: 0,
@@ -90,7 +90,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1>Dashboard</h1>
+        <h1>Home</h1>
       </div>
       
       {/* Slideshow */}
@@ -198,4 +198,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;

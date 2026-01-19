@@ -21,8 +21,8 @@ const Navbar = () => {
         <div className="navbar-menu">
           {isAuthenticated ? (
             <>
-              <Link to="/dashboard" className="navbar-link">
-                Dashboard
+              <Link to="/home" className="navbar-link">
+                Home
               </Link>
               <Link to="/courses" className="navbar-link">
                 Courses
