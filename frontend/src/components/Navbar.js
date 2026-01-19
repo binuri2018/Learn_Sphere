@@ -16,7 +16,8 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          LMS
+          <span className="brand-icon">🎓</span>
+          <span className="brand-text">LearnSphere</span>
         </Link>
         <div className="navbar-menu">
           {isAuthenticated ? (
@@ -30,7 +31,10 @@ const Navbar = () => {
               <Link to="/profile" className="navbar-link">
                 Profile
               </Link>
-              <span className="navbar-user">Welcome, {user?.email}</span>
+              <span className="navbar-user">
+                <span className="user-icon">👤</span>
+                {user?.email}
+              </span>
               <button onClick={handleLogout} className="navbar-button">
                 Logout
               </button>
