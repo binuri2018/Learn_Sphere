@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import '../styles/CourseDetail.css';
@@ -7,21 +7,13 @@ import '../styles/CourseDetail.css';
 const CourseDetail = () => {
   const { id } = useParams();
   const { isStudent, isInstructor, isAdmin } = useAuth();
-  const navigate = useNavigate();
   const [course, setCourse] = useState(null);
   const [lessons, setLessons] = useState([]);
   const [enrollment, setEnrollment] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    fetchCourseData();
-    if (isStudent) {
-      checkEnrollment();
-    }
-  }, [id]);
-
-  const fetchCourseData = async () => {
+  const fetchCourseData = useCallback(async () => {
     try {
       const response = await api.get(`/api/courses/${id}`);
       setCourse(response.data.course);
@@ -32,9 +24,9 @@ const CourseDetail = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
 
-  const checkEnrollment = async () => {
+  const checkEnrollment = useCallback(async () => {
     try {
       const response = await api.get('/api/enrollments');
       const enrollment = response.data.enrollments.find(
@@ -44,7 +36,14 @@ const CourseDetail = () => {
     } catch (error) {
       console.error('Error checking enrollment:', error);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchCourseData();
+    if (isStudent) {
+      checkEnrollment();
+    }
+  }, [id, isStudent, fetchCourseData, checkEnrollment]);
 
   const handleEnroll = async () => {
     try {

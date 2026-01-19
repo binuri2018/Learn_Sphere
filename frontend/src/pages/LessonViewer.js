@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
@@ -13,14 +13,7 @@ const LessonViewer = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    fetchLessonData();
-    if (isStudent) {
-      checkEnrollment();
-    }
-  }, [id]);
-
-  const fetchLessonData = async () => {
+  const fetchLessonData = useCallback(async () => {
     try {
       // Get lesson from course
       const coursesResponse = await api.get('/api/courses');
@@ -52,9 +45,9 @@ const LessonViewer = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
 
-  const checkEnrollment = async () => {
+  const checkEnrollment = useCallback(async () => {
     try {
       const response = await api.get('/api/enrollments');
       if (course) {
@@ -66,7 +59,14 @@ const LessonViewer = () => {
     } catch (error) {
       console.error('Error checking enrollment:', error);
     }
-  };
+  }, [course]);
+
+  useEffect(() => {
+    fetchLessonData();
+    if (isStudent) {
+      checkEnrollment();
+    }
+  }, [id, isStudent, fetchLessonData, checkEnrollment]);
 
   const handleComplete = async () => {
     if (!course || !enrollment) return;
