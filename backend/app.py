@@ -9,9 +9,15 @@ from routes.profile_routes import profile_bp
 from routes.course_routes import course_bp
 from routes.lesson_routes import lesson_bp
 from routes.enrollment_routes import enrollment_bp
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+
+# Configure CORS with environment variable
+cors_origins = os.getenv('CORS_ORIGINS', 'http://localhost:3000').split(',')
+CORS(app, resources={r"/api/*": {"origins": cors_origins}})
 
 # Register blueprints
 app.register_blueprint(auth_bp)
@@ -25,4 +31,5 @@ def health_check():
     return {'message': 'LMS API is running', 'status': 'ok'}
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.getenv('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
