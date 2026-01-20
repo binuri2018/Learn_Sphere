@@ -15,9 +15,19 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Configure CORS with environment variable
-cors_origins = os.getenv('CORS_ORIGINS', 'https://learnsphere01.netlify.app,http://localhost:3000').split(',')
-CORS(app, resources={r"/api/*": {"origins": cors_origins}})
+# ✅ FIXED CORS CONFIG (critical changes only)
+cors_origins = os.getenv(
+    'CORS_ORIGINS',
+    'https://learnsphere01.netlify.app,http://localhost:3000'
+).split(',')
+
+CORS(
+    app,
+    origins=cors_origins,
+    supports_credentials=True,
+    allow_headers=["Content-Type", "Authorization"],
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+)
 
 # Register blueprints
 app.register_blueprint(auth_bp)
